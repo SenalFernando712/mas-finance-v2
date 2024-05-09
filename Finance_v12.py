@@ -36,8 +36,8 @@ def connection(user, dsn):
     wallet_pw = "Masfinance123"
 
     con = oracledb.connect(user=user, password=pw, dsn=dsn,
-                        config_dir = r"/workspaces/mas-finance-v2/Wallet_finance/Wallet_Finance",
-                        wallet_location = r"/workspaces/mas-finance-v2/Wallet_finance/Wallet_Finance",
+                        config_dir = r"Wallet_finance/Wallet_Finance",
+                        wallet_location = r"Wallet_finance/Wallet_Finance",
                         wallet_password = wallet_pw)
     
     return con
