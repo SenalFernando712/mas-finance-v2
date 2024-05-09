@@ -74,6 +74,15 @@ def merge_pdfs(pdf_filenames):
     return merged_filename
 
 def main():
+    hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+    st.markdown(hide_st_style, unsafe_allow_html=True)
+    
     #Resources
     col1, col2 = st.columns([1, 4])
 
