@@ -74,7 +74,16 @@ def merge_pdfs(pdf_filenames):
     return merged_filename
 
 def main():
-    st.markdown("<h1 style='text-align: left;'>Twinery - Innovations 2.0</h1>", unsafe_allow_html=True)
+    #Resources
+    col1, col2 = st.columns([1, 4])
+
+    # Add the image to the first column
+    with col1:
+        st.image(r"Resources/twinerymas_logo.jpg", width=100)  # Adjust width as needed
+
+    # Add the header text to the second column
+    with col2:
+        st.markdown("<h1 style='text-align: left;'>Twinery - Innovations 2.0</h1>", unsafe_allow_html=True)
 
     st.markdown("<h2 style='text-align: center;'>MAS Finance Department : PDF Merger</h2>", unsafe_allow_html=True)
 
