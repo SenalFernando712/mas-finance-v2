@@ -1,0 +1,8 @@
+finance_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-singapore-1.oraclecloud.com))(connect_data=(service_name=g7ac71e12e55d02_finance_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+finance_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-singapore-1.oraclecloud.com))(connect_data=(service_name=g7ac71e12e55d02_finance_low.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+finance_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.ap-singapore-1.oraclecloud.com))(connect_data=(service_name=g7ac71e12e55d02_finance_medium.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))
+
+
+
