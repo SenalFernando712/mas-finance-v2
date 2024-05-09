@@ -163,16 +163,15 @@ def main():
             st.warning("Please enter a filename for the PDF.")
         else:
             pdf_filename = f"{pdf_filename}.pdf"
-            generated_doc = generate_pdf(pdf_filename, vendor, third_col_value, cost_centre_pdf, internal_pdf, assignment, text, amount)
+            generated_filename = generate_pdf(pdf_filename, vendor, third_col_value, cost_centre_pdf, internal_pdf, assignment, text, amount)
             st.success(f"PDF generated successfully: [{pdf_filename}]")
-
-            # Display a download button for the generated PDF
             st.download_button(
-                label="Download PDF",
-                data=open(pdf_filename, "rb").read(),
-                file_name=pdf_filename,
-                mime="application/pdf"
+                label="Click to Download",
+                data=open(generated_filename, "rb").read(),
+                file_name=generated_filename,
+                mime="application/pdf",
             )
+    
 
     uploaded_to_document = st.file_uploader("Upload TO Document", type="pdf")
     uploaded_approval_document = st.file_uploader("Upload Approval Document", type="pdf")
