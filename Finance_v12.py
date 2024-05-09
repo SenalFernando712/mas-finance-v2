@@ -171,10 +171,40 @@ def main():
                 file_name=generated_filename,
                 mime="application/pdf",
             )
-    
+            # Save generated PDF as file1.pdf
+            with open("file1.pdf", "wb") as f1:
+                f1.write(open(generated_filename, "rb").read())
 
     uploaded_to_document = st.file_uploader("Upload TO Document", type="pdf")
+
+     # Check if additional PDFs are uploaded
+    if uploaded_to_document:
+        with open("file2.pdf", "wb") as f2:
+            f2.write(uploaded_to_document.getvalue())
+
     uploaded_approval_document = st.file_uploader("Upload Approval Document", type="pdf")
+
+    if uploaded_approval_document:
+        with open("file3.pdf", "wb") as f3:
+            f3.write(uploaded_approval_document.getvalue())
+    
+    mergefilename = st.text_input('Rename the Merge file (without Extension):')
+
+    pdf_filenames = ["file1.pdf", "file2.pdf", "file3.pdf"]
+
+    if st.button("Merge PDFs"):
+        if not pdf_filename:
+            st.warning("Error has occured in the system !!!.")
+        else:
+            mergefilename = f"{mergefilename}.pdf"
+            merged_doc = merge_pdfs(pdf_filenames)
+            st.success(f"PDF Merged successfully: [{mergefilename}]")
+            st.download_button(
+                label="Click to Download the Merged Document",
+                data=open(merged_doc, "rb").read(),
+                file_name=mergefilename,
+                mime="application/pdf",
+            ) 
     
 
 
