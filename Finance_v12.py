@@ -8,6 +8,16 @@ from reportlab.pdfgen import canvas
 import PyPDF2
 from reportlab.platypus import Table, TableStyle
 
+# Add a footer to your Streamlit app with the text aligned to the top right corner
+st.markdown(
+    """
+    <div style="position: absolute; bottom: 10px; right: 10px;">
+        <p>Powered by AI & Algorithm Team - MAS Twinery</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 def generate_pdf(filename, vendor, third_col_value, cost_centre_pdf, internal_pdf, assignment, text, amount):
     # Generate PDF
     c = canvas.Canvas(filename, pagesize=letter)
