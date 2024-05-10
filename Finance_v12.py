@@ -134,7 +134,7 @@ def main():
 
     # Add the header text to the second column
     with col2:
-        st.markdown("<h1 style='text-align: left;'>Twinery - Innovations 3.0</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: left;'>Twinery - Innovations 2.0</h1>", unsafe_allow_html=True)
 
     st.markdown("<h2 style='text-align: center;'>MAS Finance Department : PDF Merger</h2>", unsafe_allow_html=True)
 
