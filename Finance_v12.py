@@ -6,8 +6,40 @@ import getpass
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import PyPDF2
+from reportlab.platypus import Table, TableStyle
 
 def generate_pdf(filename, vendor, third_col_value, cost_centre_pdf, internal_pdf, assignment, text, amount):
+    # Generate PDF
+    c = canvas.Canvas(filename, pagesize=letter)
+    
+    # Define data for the table
+    data = [
+        ["Vendor:", vendor],
+        ["GL Account No:", third_col_value],
+        ["Cost Centre No:", cost_centre_pdf],
+        ["Internal Order No:", internal_pdf],
+        ["Assignment:", assignment],
+        ["Text:", text],
+        ["Amount:", amount]
+    ]
+    
+    table = Table(data, colWidths=[150, 250], rowHeights=30)  # Adjust column widths and row heights as needed
+    
+    # Define style for table
+    style = TableStyle([
+        ('GRID', (0, 0), (-1, -1), 1, (0, 0, 0))]) 
+    
+
+    table.setStyle(style)
+    
+    # Center the table on the page
+    table.wrapOn(c, 0, 0)
+    table.drawOn(c, 100, 500)  # Adjust the x, y coordinates to position the table with 10 mm margin from the top
+    
+    c.save()
+    return filename
+
+def generate_pdfx(filename, vendor, third_col_value, cost_centre_pdf, internal_pdf, assignment, text, amount):
     # Generate PDF
     c = canvas.Canvas(filename, pagesize=letter)
     c.drawString(100, 750, f"Vendor: {vendor}")
